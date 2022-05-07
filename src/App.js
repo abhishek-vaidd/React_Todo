@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import DisplayTodos from './components/DisplayTodos'
+import Todo from './components/Todo'
+import { motion } from 'framer-motion';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className='App'>
+            <motion.h1
+                initial={{ y: -200 }}
+                animate={{ y: 0 }}
+                transition={{ type: 'spring', duration: 0.5 }}
+                whileHover={{ scale: 1.1 }}
+            >Fantastic To Do</motion.h1>
+            <motion.div
+                initial={{ y: 1000 }}
+                animate={{ y: 0 }}
+                transition={{ type: 'spring', duration: 1 }}>
+                <Todo />
+                <DisplayTodos />
+            </motion.div>
+        </div>
+    )
 }
 
-export default App;
+export default App
